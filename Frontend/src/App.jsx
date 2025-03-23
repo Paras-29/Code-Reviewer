@@ -21,15 +21,8 @@ function App() {
   }, [])
 
   async function reviewCode() {
-    setLoading(true) // Show loader
-    try {
-      const response = await axios.post('http://localhost:3000/ai/get-review', { code })
-      setReview(response.data)
-    } catch (error) {
-      setReview("Error fetching review")
-    } finally {
-      setLoading(false) // Hide loader
-    }
+    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+    setReview(response.data)
   }
 
   return (
